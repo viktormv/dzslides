@@ -88,27 +88,6 @@ footer {
   border: 5px red solid;
 }
 
-/* Slide flipping */
-
-/* Previous */
-section {
-  opacity: 0;
-}
-.view section {
-  opacity: 1;
-}
-/* Current */
-section[aria-selected] {
-  opacity: 1;
-}
-/* Next */
-section[aria-selected] ~ section {
-  opacity: 0;
-}
-.view section[aria-selected] ~ section {
-  opacity: 1;
-}
-
 /* Incremental elements */
 
 /* Items already covered */
