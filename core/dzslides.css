@@ -8,6 +8,7 @@
 details {
   display: none;
 }
+/* default aspect is 4:3 */
 body {
   width: 800px;
   height: 600px;
@@ -18,6 +19,14 @@ body {
   left: 50%;
   overflow: hidden;
   display: none;
+}
+.aspect-16-10 body {
+  height: 500px; 
+  margin-top: -250px;
+}
+.aspect-16-9 body {
+  height: 450px; 
+  margin-top: -225px;
 }
 .view body {
   position: static;
@@ -56,6 +65,16 @@ section {
   -webkit-transform: scale(.4);
   -o-transform: scale(.4);
   -ms-transform: scale(.4);
+}
+.view.aspect-16-10 section {
+  height: 500px;
+  margin-top: -125px;
+  margin-bottom: -125px;
+}
+.view.aspect-16-9 section {
+  height: 450px;
+  margin-top: -112px;
+  margin-bottom: -113px;
 }
 .view section > * {
   pointer-events: none;
@@ -97,6 +116,8 @@ figure > * {
   position: absolute;
 }
 figure > img, figure > video {
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }

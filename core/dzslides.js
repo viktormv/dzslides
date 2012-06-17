@@ -155,6 +155,13 @@ Dz.getDetails = function(aIdx) {
   return d ? d.innerHTML : "";
 }
 
+Dz.getAspect = function() {
+  var match = document.documentElement.className.match(/\baspect-([0-9]+)-([0-9]+)\b/)
+  if (match)
+    return match[1] + ":" + match[2];
+  return "4:3";
+}
+
 Dz.onmessage = function(aEvent) {
   var argv = aEvent.data.split(" "), argc = argv.length;
   argv.forEach(function(e, i, a) { a[i] = decodeURIComponent(e) });
@@ -181,6 +188,8 @@ Dz.onmessage = function(aEvent) {
     this.postMsg(win, "CURSOR", this.idx + "." + this.step);
   if (argv[0] === "GET_NOTES" && argc === 1)
     this.postMsg(win, "NOTES", this.getDetails(this.idx));
+  if (argv[0] === "GET_ASPECT" && argc === 1)
+    this.postMsg(win, "ASPECT", this.getAspect());
 }
 
 Dz.toggleContent = function() {
