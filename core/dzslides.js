@@ -144,7 +144,6 @@ Dz.onresize = function() {
   db.style.transform = transform;
 }
 
-
 Dz.getDetails = function(aIdx) {
   var s = $("section:nth-of-type(" + aIdx + ")");
   var d = s.$("details");
