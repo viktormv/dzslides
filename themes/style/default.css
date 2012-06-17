@@ -1,25 +1,29 @@
-html, .view body { background-color: black; counter-reset: slideidx; }
-body, .view section { background-color: white; border-radius: 12px }
-/* A section is a slide. It's size is 800x600, and this will never change */
-section, .view head > title {
-    /* The font from Google */
-    font-family: 'Oswald', arial, serif;
-    font-size: 30px;
+html, .view body {
+  background-color: black;
+  counter-reset: slideidx;
 }
-
+body, .view section {
+  background-color: white;
+  border-radius: 12px;
+}
+section, .view head > title {
+  /* The font from Google */
+  font-family: 'Oswald', Arial, serif;
+  font-size: 30px;
+}
 .view section:after {
   counter-increment: slideidx;
   content: counter(slideidx, decimal-leading-zero);
-  position: absolute; bottom: -80px; right: 100px;
+  position: absolute;
+  bottom: -80px;
+  right: 100px;
   color: white;
 }
-
 .view head > title {
   color: white;
   text-align: center;
   margin: 1em 0 1em 0;
 }
-
 h1, h2 {
   margin-top: 200px;
   text-align: center;
@@ -32,12 +36,10 @@ h3 {
 ul {
     margin: 50px 200px;
 }
-
 p {
   margin: 75px;
   font-size: 50px;
 }
-
 blockquote {
   height: 100%;
   background-color: black;
@@ -51,7 +53,6 @@ blockquote:before {
 blockquote:after {
   content: close-quote;
 }
-
 /* Figures are displayed full-page, with the caption
    on top of the image/video */
 figure {
@@ -61,7 +62,6 @@ figcaption {
   margin: 70px;
   font-size: 50px;
 }
-
 footer {
   position: absolute;
   bottom: 0;
@@ -71,38 +71,51 @@ footer {
   background-color: #F3F4F8;
   border-top: 1px solid #CCC;
 }
-
 .view section {
   -moz-transition: none;
   -webkit-transition: none;
   -ms-transition: none;
   transition: none;
 }
-
 .view section[aria-selected] {
   border: 5px red solid;
 }
 
-/* Before */
-section { opacity: 0; }
-.view section { opacity: 1; }
-/* Now */
-section[aria-selected] { opacity: 1; }
-/* After */
-section[aria-selected] ~ section { opacity: 0; }
-.view section[aria-selected] ~ section { opacity: 1; }
+/* Slide flipping */
+
+/* Previous */
+section {
+  opacity: 0;
+}
+.view section {
+  opacity: 1;
+}
+/* Current */
+section[aria-selected] {
+  opacity: 1;
+}
+/* Next */
+section[aria-selected] ~ section {
+  opacity: 0;
+}
+.view section[aria-selected] ~ section {
+  opacity: 1;
+}
 
 /* Incremental elements */
 
-/* By default, visible */
-.incremental > * { opacity: 1; }
-
-/* The current item */
-.incremental > *[aria-selected] { opacity: 1; }
-
-/* The items to-be-selected */
-.incremental > *[aria-selected] ~ * { opacity: 0; }
-
+/* Items already covered */
+.incremental > * {
+  opacity: 1;
+}
+/* Current item */
+.incremental > *[aria-selected] {
+  opacity: 1;
+}
+/* Items to be shown */
+.incremental > *[aria-selected] ~ * {
+  opacity: 0;
+}
 /* The progressbar, at the bottom of the slides, show the global
    progress of the presentation. */
 #progress-bar {
