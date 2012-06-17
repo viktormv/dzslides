@@ -2,8 +2,7 @@
 
 **DZSlides** is a **one-file** HTML template to build slides in HTML5 and CSS3.
 
-[template.html](/paulrouget/dzslides/blob/master/template.html) is the only file you need. Edit the file, add your content, change the style, and you're done. To see the slides in action, just load
-the file in your browser.
+template.html in the root of this repository is where you put your slides. The template includes the dzslides script and default styles from the core directory. Edit the template, add your content, change the style, and you're done. To see the slides in action, just load the file in your browser.
 
 ## Features
 
