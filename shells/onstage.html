@@ -19,7 +19,7 @@
 </div>
 
 <div id="slidecount">?</div>
-<button id="popup-button" onclick="Dz.popup()">Pop-up</button>
+<button id="popup-button" onclick="Dz.popup()">Launch</button>
 
 <div id="time">
   <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
@@ -174,28 +174,34 @@
     if ( aEvent.keyCode == 37 // left arrow
       || aEvent.keyCode == 38 // up arrow
       || aEvent.keyCode == 33 // page up
+      || aEvent.keyCode == 8 // backspace
     ) {
       aEvent.preventDefault();
       this.back();
     }
-    if ( aEvent.keyCode == 39 // right arrow
+    else if ( aEvent.keyCode == 39 // right arrow
       || aEvent.keyCode == 40 // down arrow
       || aEvent.keyCode == 34 // page down
+      || aEvent.keyCode == 32 // space
     ) {
       aEvent.preventDefault();
       this.forward();
     }
-    if (aEvent.keyCode == 35) { // end
+    else if (aEvent.keyCode == 35) { // end
       aEvent.preventDefault();
       this.goEnd();
     }
-    if (aEvent.keyCode == 36) { // home
+    else if (aEvent.keyCode == 36) { // home
       aEvent.preventDefault();
       this.goStart();
     }
-    if (aEvent.keyCode == 32) { // space
+    else if (aEvent.keyCode == 80) { // p
       aEvent.preventDefault();
       this.toggleContent();
+    }
+    else if (aEvent.keyCode == 79) { // o
+      aEvent.preventDefault();
+      this.popup();
     }
   }
   
