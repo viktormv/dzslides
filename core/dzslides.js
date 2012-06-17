@@ -18,6 +18,11 @@ Dz.init = function() {
   document.body.className = "loaded";
   this.slides = Array.prototype.slice.call($$("body > section"));
   this.progressBar = $("#progress-bar");
+  if (!this.progressBar) {
+    this.progressBar = document.createElement('div');
+    this.progressBar.id = 'progress-bar';
+    document.body.appendChild(this.progressBar);
+  }
   this.html = document.body.parentNode;
   this.setupParams();
   this.onhashchange();
