@@ -59,6 +59,7 @@ Dz.onkeydown = function(aEvent) {
     || aEvent.keyCode == 38 // up arrow
     || aEvent.keyCode == 33 // page up
     || aEvent.keyCode == 8 // backspace
+    || aEvent.keyCode == 75 // k
   ) {
     aEvent.preventDefault();
     this.back();
@@ -67,6 +68,7 @@ Dz.onkeydown = function(aEvent) {
     || aEvent.keyCode == 40 // down arrow
     || aEvent.keyCode == 34 // page down
     || aEvent.keyCode == 32 // space
+    || aEvent.keyCode == 74 // j
   ) {
     aEvent.preventDefault();
     this.forward();
@@ -286,6 +288,10 @@ Dz.setSlide = function(aIdx) {
   var old = $("section[aria-selected]");
   var next = $("section:nth-of-type("+ this.idx +")");
   if (old) {
+    var oldIncremental = old.$('.incremental > *[aria-selected]')
+    if (oldIncremental) {
+      oldIncremental.removeAttribute('aria-selected');
+    }
     old.removeAttribute("aria-selected");
     var video = old.$("video");
     if (video) {
