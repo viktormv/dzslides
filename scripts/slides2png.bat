@@ -1,1 +1,1 @@
-call groovy slides2png.groovy %1
+call groovy slides2png4win %1

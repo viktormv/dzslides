@@ -1,5 +1,5 @@
 /**
- * slides2png is a Groovy script that plays a dzslides presentation using
+ * slides2png4win is a Groovy script that plays a dzslides presentation using
  * WebDriver, captures each slide to a PNG and generates a shell script to
  * collate the PNGs together into a PDF using convert (from ImageMagick).
  *
@@ -7,7 +7,7 @@
  * If the presentation is local, specify the absolute path prefixed with the
  * file:// protocol.
  *
- * slides2png relies on IMAGE_MAGICK_HOME environment variable pointing to
+ * slides2png4win relies on IMAGE_MAGICK_HOME environment variable pointing to
  * the directory where ImageMagick was unpacked.
  *
  * @author Dan Allen, Samuel Santos
