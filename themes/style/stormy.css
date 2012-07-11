@@ -1,5 +1,5 @@
 /*
- Theme: Watermelon
+ Theme: Stormy
  Fonts: Yanone Kaffeesatz, Cedarville Cursive
 
  <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,200,300" rel="stylesheet">
@@ -162,7 +162,7 @@ section.recap h2 {
 }
 
 section.recap h3 {
-  color: ##611427;
+  color: #611427;
   text-transform: uppercase;
   font-size: 3em;
 }
