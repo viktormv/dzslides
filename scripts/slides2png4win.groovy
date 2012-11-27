@@ -7,6 +7,8 @@
  * If the presentation is local, specify the absolute path prefixed with the
  * file:// protocol.
  *
+ * Make sure to set your screen resolution to the aspect ratio of the slides.
+ *
  * slides2png4win relies on IMAGE_MAGICK_HOME environment variable pointing to
  * the directory where ImageMagick was unpacked.
  *
@@ -16,9 +18,9 @@
  */
 
 @Grapes([
-    @Grab("org.codehaus.geb:geb-core:0.7.0"),
-    @Grab("org.seleniumhq.selenium:selenium-firefox-driver:2.24.1"),
-    @Grab("org.seleniumhq.selenium:selenium-support:2.24.1")
+    @Grab("org.codehaus.geb:geb-core:0.7.2"),
+    @Grab("org.seleniumhq.selenium:selenium-firefox-driver:2.25.0"),
+    @Grab("org.seleniumhq.selenium:selenium-support:2.25.0")
 ])
 import geb.Browser
 
