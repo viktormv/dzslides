@@ -463,6 +463,10 @@ section.source h2 {
   text-align: right;
 }
 
+section.source.lhs h2 {
+  text-align: left;
+}
+
 section.source div.title {
   color: #958976;
   font-weight: 700;
