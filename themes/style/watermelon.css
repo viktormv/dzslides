@@ -7,8 +7,8 @@
 
  Style class:
  .title = Use on title slide
- .topic = Use on topic slide, use h1 heading for topic name
- .recap = Use on recap slides, use h1 heading for topic name, h2 and h3 in an hgroup for summary
+ .intro = Use on intro slide, use h1 heading (or h2 heading) for topic name
+ .recap = Use on recap slides, use h1 heading (or h2 heading) for topic name, h2 and h3 in an hgroup for summary
  .source = Use on source code slide, put source in <pre><code> (requires highlight.js for syntax highlighting)
  .ending = Use on final slide, use h2 heading for message
  .middle = Use on any element to vertically center it
@@ -90,22 +90,26 @@ section.title footer {
   padding: 30px 50px;
 }
 
-section.topic {
+section.intro {
   background-color: #FF4342;
 }
 
-section.topic h1 {
+section.intro h1,
+section.intro h2 {
   color: #D5EE5E;
   text-transform: lowercase;
   line-height: .7em;
   text-align: left;
+  font-size: 4.4em; /* duplicated here for h2 */
 }
 
-section.topic.alt h1 {
+section.intro.alt h1,
+section.intro.alt h2 {
   text-align: right;
 }
 
-section.topic h1 strong {
+section.intro h1 strong,
+section.intro h2 strong {
   color: #F1F2EC;
   font-size: 1.51em;
 }
@@ -127,7 +131,8 @@ section.secret strong {
   line-height: .8em;
 }
 
-section.recap h1 {
+section.recap > h1,
+section.recap > h2 {
   text-transform: uppercase;
   color: #87A660;
   font-size: 2em;
@@ -148,23 +153,23 @@ section.recap h1 {
   padding: 10px;
 }
 
-section.recap h2 {
+section.recap hgroup h2 {
   color: #797979;
   text-transform: uppercase;
   font-size: 4.4em;
 }
 
-section.recap h3 {
+section.recap hgroup h3 {
   color: #FF4342;
   text-transform: uppercase;
   font-size: 3em;
 }
 
-section.recap .invert h2 {
+section.recap hgroup.invert h2 {
   font-size: 3em;
 }
 
-section.recap .invert h3 {
+section.recap hgroup.invert h3 {
   font-size: 4.4em;
 }
 
@@ -192,10 +197,12 @@ section.ending > h2 {
 
 section.ending > h2.name {
   text-transform: none;
-  top: 40%;
+  /*top: 40%;*/
+  top: 10%;
 }
 
-section.ending footer {
+section.ending footer,
+section.ending p.footer {
   position: absolute;
   bottom: 15%;
   left: 0;
@@ -231,6 +238,15 @@ section ul {
 
 section ul.variants {
   margin-top: 150px; /* half height (250px) - 100px to account for padding */
+}
+
+section ul.inline {
+  text-align: left;
+  text-transform: none;
+}
+
+section ul.inline li {
+  display: inline;
 }
 
 section .graffiti {
@@ -270,6 +286,7 @@ section dd:nth-of-type(2n) {
   text-align: right;
 }
 
+section ul.inline,
 section p {
   color: #797979;
   font-weight: 700;
@@ -439,11 +456,13 @@ section pre code {
 }
 
 .middle,
-section.topic > h1,
+section.intro > h1,
+section.intro > h2,
 section.recap > hgroup, 
 section.ending > h2,
 section > dl,
 section > ul.graffiti,
+section > ul.inline,
 section > p {
   position: relative;
   top: 50%;

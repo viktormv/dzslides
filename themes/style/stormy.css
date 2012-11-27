@@ -7,10 +7,11 @@
 
  Style class:
  .title = Use on title slide
- .topic = Use on topic slide, use h1 heading for topic name
- .recap = Use on recap slides, use h1 heading for topic name, h2 and h3 in an hgroup for summary
+ .intro = Use on intro slides, use h1 heading (or h2 heading) for topic name
+ .recap = Use on recap slides, use h1 heading (or h2 heading) for topic name, h2 and h3 in an hgroup for summary
  .source = Use on source code slide, put source in <pre><code> (requires highlight.js for syntax highlighting)
  .ending = Use on final slide, use h2 heading for message
+ .stmt = Use on a paragraph to make it a statement, vertically centered
  .middle = Use on any element to vertically center it
  
  Color Palette:
@@ -87,6 +88,7 @@ section.title h1 {
   -ms-transform: translate(0, -50%);
   -o-transform: translate(0, -50%);
   transform: translate(0, -50%);
+  padding: 0 50px; /* quick hack to fix overruns */
 }
 
 section.title footer {
@@ -96,22 +98,33 @@ section.title footer {
   padding: 30px 50px;
 }
 
-section.topic {
+section[class=topic] h2 {
+  color: #958976;
+  font-size: 2.5em;
+  margin-bottom: .5em;
+  margin-top: -.5em;
+}
+
+section.intro {
   background-color: #1D2326;
 }
 
-section.topic h1 {
+section.intro h1,
+section.intro h2 {
   color: #DDDCC5;
   text-transform: lowercase;
   line-height: .7em;
   text-align: left;
+  font-size: 4.4em;
 }
 
-section.topic.alt h1 {
+section.intro.alt h1,
+section.intro.alt h2 {
   text-align: right;
 }
 
-section.topic h1 strong {
+section.intro h1 strong,
+section.intro h2 strong {
   color: #D5EE5E;
   font-size: 1.51em;
   line-height: .8em;
@@ -134,7 +147,9 @@ section.secret strong {
   line-height: .8em;
 }
 
-section.recap h1 {
+section.recap > h1,
+section.recap > h2 {
+  margin: 0;
   text-transform: uppercase;
   color: #87A660;
   font-size: 2em;
@@ -155,23 +170,23 @@ section.recap h1 {
   padding: 10px;
 }
 
-section.recap h2 {
+section.recap hgroup h2 {
   color: #958976;
   text-transform: uppercase;
   font-size: 4.4em;
 }
 
-section.recap h3 {
+section.recap hgroup h3 {
   color: #611427;
   text-transform: uppercase;
   font-size: 3em;
 }
 
-section.recap .invert h2 {
+section.recap hgroup .invert h2 {
   font-size: 3em;
 }
 
-section.recap .invert h3 {
+section.recap hgroup .invert h3 {
   font-size: 4.4em;
 }
 
@@ -202,7 +217,8 @@ section.ending > h2.name {
   top: 40%;
 }
 
-section.ending footer {
+section.ending footer,
+section.ending p.footer {
   position: absolute;
   bottom: 15%;
   left: 0;
@@ -213,6 +229,7 @@ section.ending footer {
   text-align: center;
   color: #43C5F1;
   font-weight: bold;
+  top: 50%;
 }
 
 h1 {
@@ -224,6 +241,11 @@ h1, h2, h3 {
 }
 
 h3 {
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 section ul {
@@ -323,7 +345,8 @@ section p.expression {
 }
 
 section p.follow-up {
-  color: #D5EE5E;
+  /*color: #D5EE5E;*/
+  color: #958976;
   font-weight: 700;
   font-size: 2em;
   margin-top: -.5em;
@@ -374,7 +397,7 @@ blockquote:before {
 section blockquote p {
   color: #1D2326;
   font-weight: 700;
-  line-height: 2;
+  line-height: 1.5;
   margin-bottom: .5em;
   font-style: italic;
   font-size: 3.5em;
@@ -405,13 +428,17 @@ blockquote cite:before {
 
 figcaption {
   font-size: 3em;
-  color: #FFFFFF;
+  color: #000000;
   font-weight: 700;
-  text-align: center;
+  text-align: right;
   position: absolute;
-  top: 50px;
-  left: 0;
+  bottom: 20px;
+  right: 35px;
   width: 100%;
+}
+
+figcaption.invert {
+  color: #FFFFFF;
 }
 
 section.title footer {
@@ -436,6 +463,14 @@ section.source h2 {
   text-align: right;
 }
 
+section.source div.title {
+  color: #958976;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-bottom: .3em;
+  padding-left: 1px;
+}
+
 section pre code {
   font-family: "DejaVu Sans Mono", "Droid Sans Mono", Menlo, Monaco, "Courier New", monospace;
   font-size: 1em;
@@ -446,7 +481,9 @@ section pre code {
 }
 
 .middle,
-section.topic > h1,
+.stmt,
+section.intro > h1,
+section.intro > h2,
 section.recap > hgroup, 
 section.ending > h2,
 section > dl,
@@ -461,7 +498,7 @@ section > p {
   transform: translate(0, -50%);
 }
 
-section p.middle strong {
+section p.stmt strong {
   font-size: 3em;
   line-height: .75em;
 }
@@ -471,12 +508,27 @@ img.middle {
   margin: 0 auto;
 }
 
+.hide {
+  display: none;
+}
+
 .pull-left {
   float: left;
 }
 
 .pull-right {
   float: right;
+}
+
+.auto-width {
+  width: auto !important;
+}
+
+span.detail {
+  font-size: .6em;
+  color: #958976;
+  opacity: 0.3;
+  font-weight: normal;
 }
 
 /* Incremental elements */
@@ -521,7 +573,8 @@ section.title h1 strong {
   font-style: italic;
 }
 
-section.topic h1 strong {
+section.intro h1 strong,
+section.intro h2 strong {
   font-size: 3.5em;
 }
 
@@ -530,7 +583,8 @@ section p {
   margin-bottom: 1em;
 }
 
-section p.middle {
+section p.middle,
+section p.stmt {
   font-size: 3em;
 }
 
@@ -548,6 +602,11 @@ section > p {
   transform: none;
 }
 
+section pre.literal {
+  font-size: .8em;
+  font-weight: bold;
+}
+
 section pre code {
   white-space: pre-wrap;
 }
@@ -560,8 +619,13 @@ section pre:nth-of-type(2):not(.continue) code {
 section ul {
   text-transform: none;
   text-align: left;
-  font-size: 1.5em;
+/*  font-size: 1.5em;*/
   line-height: 1.1;
+}
+section ul ul {
+  font-size: .8em;
+  margin-bottom: 0;
+  margin-left: 1em;
 }
 section.fit {
   padding: 50px 0;
