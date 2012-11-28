@@ -11,7 +11,7 @@
  .recap = Use on recap slides, use h1 heading (or h2 heading) for topic name, h2 and h3 in an hgroup for summary
  .source = Use on source code slide, put source in <pre><code> (requires highlight.js for syntax highlighting)
  .ending = Use on final slide, use h2 heading for message
- .stmt = Use on a paragraph to make it a statement, vertically centered
+ .statement = Use on a paragraph to make it a statement, vertically centered
  .middle = Use on any element to vertically center it
  
  Color Palette:
@@ -491,7 +491,7 @@ section pre code {
 }
 
 .middle,
-.stmt,
+.statement,
 section.intro > h1,
 section.intro > h2,
 section.recap > hgroup, 
@@ -508,7 +508,7 @@ section > p {
   transform: translate(0, -50%);
 }
 
-section p.stmt strong {
+section p.statement strong {
   font-size: 3em;
   line-height: .75em;
 }
@@ -598,7 +598,7 @@ section p {
 }
 
 section p.middle,
-section p.stmt {
+section p.statement {
   font-size: 3em;
 }
 
@@ -636,15 +636,18 @@ section ul {
 /*  font-size: 1.5em;*/
   line-height: 1.1;
 }
+
 section ul ul {
   font-size: .8em;
   margin-bottom: 0;
   margin-left: 1em;
 }
+
 section.fit {
   padding: 50px 0;
   -moz-transition: none;
 }
+
 section.fit > img {
   max-width: 100%;
   max-height: 100%;
