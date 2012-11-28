@@ -105,7 +105,7 @@ section[class=topic] h2 {
   margin-top: -.5em;
 }
 
-section.intro {
+section.intro, section.terminal {
   background-color: #1D2326;
 }
 
@@ -128,6 +128,10 @@ section.intro h2 strong {
   color: #D5EE5E;
   font-size: 1.51em;
   line-height: .8em;
+}
+
+section.terminal pre.literal {
+  color: #D5EE5E;
 }
 
 section.secret {
@@ -207,7 +211,7 @@ section.ending {
 }
 
 section.ending > h2 {
-  color: #DDDCC5;
+  color: #F1F2EC;
   font-size: 4.4em;
   text-transform: lowercase;
 }
@@ -220,7 +224,7 @@ section.ending > h2.name {
 section.ending footer,
 section.ending p.footer {
   position: absolute;
-  bottom: 15%;
+  bottom: 21%;
   left: 0;
   background-color: #FFFFFF;
   width: 100%;
@@ -229,7 +233,8 @@ section.ending p.footer {
   text-align: center;
   color: #43C5F1;
   font-weight: bold;
-  top: 50%;
+  top: 55%;
+  margin: 0;
 }
 
 h1 {
@@ -477,7 +482,8 @@ section.source div.title {
 
 section pre code {
   font-family: "DejaVu Sans Mono", "Droid Sans Mono", Menlo, Monaco, "Courier New", monospace;
-  font-size: 1em;
+  /*font-size: 1em;*/
+  font-size: .75em; /* for asciidoc presentation, may need more control here */
   line-height: 1.2;
   background: rgba(255,255,255,.075);
   border: 1px solid rgba(255,255,255,.2);
@@ -533,6 +539,10 @@ span.detail {
   color: #958976;
   opacity: 0.3;
   font-weight: normal;
+}
+
+.mild {
+  color: #87A660;
 }
 
 /* Incremental elements */
