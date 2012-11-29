@@ -448,7 +448,8 @@ blockquote cite:before {
 
 figcaption {
   font-size: 3em;
-  color: #000000;
+  color: #611427;
+  /*color: #000000;*/
   font-weight: 700;
   text-align: right;
   position: absolute;
