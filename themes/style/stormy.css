@@ -224,7 +224,7 @@ section.ending > h2.name {
 section.ending footer,
 section.ending p.footer {
   position: absolute;
-  bottom: 21%;
+  bottom: 22%;
   left: 0;
   background-color: #FFFFFF;
   width: 100%;
@@ -235,6 +235,11 @@ section.ending p.footer {
   font-weight: bold;
   top: 55%;
   margin: 0;
+}
+
+.aspect-16-10 section.ending footer,
+.aspect-16-10 section.ending p.footer {
+  height: 26%;
 }
 
 h1 {
@@ -265,6 +270,16 @@ section ul {
 
 section ul.variants {
   margin-top: 150px; /* half height (250px) - 100px to account for padding */
+}
+
+section ul.scatter li:nth-of-type(2n) {
+  clear: left;
+  float: right;
+}
+
+section ul.scatter li:nth-of-type(2n - 1) {
+  clear: right;
+  float: left;
 }
 
 section .graffiti {
@@ -516,6 +531,14 @@ section p.statement strong {
 img.middle {
   display: block;
   margin: 0 auto;
+}
+
+img.stretch-x {
+  width: 100%;
+}
+
+img.stretch-y {
+  height: 100%;
 }
 
 .hide {
