@@ -272,14 +272,27 @@ section ul.variants {
   margin-top: 150px; /* half height (250px) - 100px to account for padding */
 }
 
-section ul.scatter li:nth-of-type(2n) {
-  clear: left;
+section ul.split > li {
+  width: 50%;
+}
+
+section ul.split > li:nth-of-type(2n),
+section ul.scatter > li:nth-of-type(2n) {
   float: right;
 }
 
-section ul.scatter li:nth-of-type(2n - 1) {
-  clear: right;
+section ul.split > li:nth-of-type(2n - 1),
+section ul.scatter > li:nth-of-type(2n - 1) {
   float: left;
+}
+
+section ul.scatter > li:nth-of-type(2n) {
+  clear: left;
+  text-align: right;
+}
+
+section ul.scatter > li:nth-of-type(2n - 1) {
+  clear: right;
 }
 
 section .graffiti {
@@ -498,8 +511,7 @@ section.source div.title {
 
 section pre code {
   font-family: "DejaVu Sans Mono", "Droid Sans Mono", Menlo, Monaco, "Courier New", monospace;
-  /*font-size: 1em;*/
-  font-size: .75em; /* for asciidoc presentation, may need more control here */
+  font-size: 1em;
   line-height: 1.2;
   background: rgba(255,255,255,.075);
   border: 1px solid rgba(255,255,255,.2);
