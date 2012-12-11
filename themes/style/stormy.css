@@ -461,8 +461,8 @@ blockquote cite:before {
 
 figcaption {
   font-size: 3em;
-  color: #611427;
-  /*color: #000000;*/
+  /*color: #611427;*/
+  color: #000000;
   font-weight: 700;
   text-align: right;
   position: absolute;
@@ -473,6 +473,7 @@ figcaption {
 
 figcaption.invert {
   color: #FFFFFF;
+  text-shadow: 2px 2px #000000;
 }
 
 section.title footer {
@@ -564,6 +565,10 @@ img.stretch-y {
 
 .pull-right {
   float: right;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .auto-width {
@@ -689,4 +694,8 @@ section.fit > img {
   max-height: 100%;
   margin: auto;
   display: block;
+}
+
+.colist {
+  color: #DDDCC5;
 }
