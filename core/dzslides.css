@@ -115,7 +115,7 @@ figure {
 figure > * {
   position: absolute;
 }
-figure > img, figure > video {
+figure > img, figure > video, figure > embed {
   top: 0;
   left: 0;
   width: 100%;
