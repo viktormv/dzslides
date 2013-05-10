@@ -1,9 +1,9 @@
 /*
  Theme: Watermelon
- Fonts: Yanone Kaffeesatz, Cedarville Cursive
+ Fonts: Yanone Kaffeesatz, Covered By Your Grace
 
  <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,200,300" rel="stylesheet">
- <link href="http://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
+ <link href="http://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
 
  Style class:
  .title = Use on title slide
@@ -114,6 +114,10 @@ section.intro h2 strong {
   font-size: 1.51em;
 }
 
+section.topic h2 {
+  font-size: 4em;
+}
+
 section.secret {
   background-color: #797979;
 }
@@ -153,23 +157,27 @@ section.recap > h2 {
   padding: 10px;
 }
 
-section.recap hgroup h2 {
+section.recap hgroup h2,
+section.recap .hgroup h2 {
   color: #797979;
   text-transform: uppercase;
   font-size: 4.4em;
 }
 
-section.recap hgroup h3 {
+section.recap hgroup h3,
+section.recap .hgroup h3 {
   color: #FF4342;
   text-transform: uppercase;
   font-size: 3em;
 }
 
-section.recap hgroup.invert h2 {
+section.recap hgroup.invert h2,
+section.recap .hgroup.invert h2 {
   font-size: 3em;
 }
 
-section.recap hgroup.invert h3 {
+section.recap hgroup.invert h3,
+section.recap .hgroup.invert h3 {
   font-size: 4.4em;
 }
 
@@ -250,7 +258,7 @@ section ul.inline li {
 }
 
 section .graffiti {
-  font-family: 'Cedarville Cursive', cursive;
+  font-family: 'Covered By Your Grace', cursive;
   text-transform: none;
   font-weight: normal;
   color: #333333;
@@ -294,7 +302,7 @@ section p {
 }
 
 section p.revision {
-  font-family: 'Cedarville Cursive';
+  font-family: 'Covered By Your Grace', cursive;
   font-weight: normal;
   color: #333333;
   -webkit-transform: rotate(-15deg);
@@ -341,7 +349,8 @@ section p.follow-up {
 }
 
 section p.point {
-  position: relative;
+  position: static;
+  /*position: relative;*/
   text-transform: uppercase;
   font-size: 2.8em;
   text-align: right;
@@ -459,6 +468,7 @@ section pre code {
 section.intro > h1,
 section.intro > h2,
 section.recap > hgroup, 
+section.recap > .hgroup, 
 section.ending > h2,
 section > dl,
 section > ul.graffiti,
@@ -471,6 +481,10 @@ section > p {
   -ms-transform: translate(0, -50%);
   -o-transform: translate(0, -50%);
   transform: translate(0, -50%);
+}
+
+section.replace > p {
+  position: absolute;
 }
 
 img.middle {
@@ -493,9 +507,14 @@ img.middle {
   opacity: .5;
 }
 
+.incremental.replace > * {
+  opacity: 0;
+}
+
 /* The current item */
 .incremental > *[aria-selected] {
-  opacity: 1;
+  /* bug in Chrome makes it jump when opacity goes to 1 */
+  opacity: .99;
 }
 
 /* The items to-be-selected */

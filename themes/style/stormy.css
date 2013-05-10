@@ -98,11 +98,26 @@ section.title footer {
   padding: 30px 50px;
 }
 
-section[class=topic] h2 {
+section.title .subtitle {
+  display: block;
+  margin-top: 50px;
+}
+
+section.topic h2 {
   color: #958976;
   font-size: 2.5em;
   margin-bottom: .5em;
   margin-top: -.5em;
+}
+
+section.tilt {
+  -moz-transform:rotate(-4deg);
+  -o-transform:rotate(-4deg);
+  -webkit-transform:rotate(-4deg);
+}
+
+section.tilt h2 {
+  margin-top: -40px;
 }
 
 section.intro, section.terminal {
@@ -304,7 +319,8 @@ section .graffiti {
   line-height: 1.5;
 }
 
-section .graffiti strong, section .graffiti em {
+section .graffiti strong,
+section .graffiti em {
   font-weight: 700;
   font-size: 1.5em;
 }
@@ -399,9 +415,27 @@ section em {
   font-style: normal;
 }
 
+section em .light {
+  font-weight: normal;
+}
+
+section.intro em {
+  color: #D5EE5E;
+}
+
 section strong {
   color: #611427;
 }
+
+strong .block {
+  padding-right: 1000px;
+}
+
+/*
+strong .block:after {
+  display: table;
+  content: " ";
+}*/
 
 section del {
   color: #6A6A61;
@@ -412,19 +446,24 @@ section p del span {
   font-weight: 700;
 }
 
+.sans {
+  font-family: sans-serif;
+}
+
 blockquote {
   padding: 0 0 0 15px;
   margin: -10px 2em 0 2em;
-  border-left: 5px solid #611427;
+  border-left: 5px solid #ccc;
 }
 
 blockquote:before {
   color: #611427;
   content: '\201C';
-  font-size: 4em;
-  font-weight: 700;
+  font-size: 8em;
+  font-weight: 500;
   float: left;
-  margin-left: -.9em;
+  margin-left: -.6em;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
 }
 
 section blockquote p {
@@ -453,27 +492,75 @@ blockquote cite {
   color: #87A660;
   font-style: normal;
   margin-top: .25em;
+  padding-bottom: .25em;
 }
 
 blockquote cite:before {
   content: '\2014 \00A0';
 }
 
+figure > a,
+figure > a > img {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+figure > img.elevate {
+  top: -5%;
+}
+
+figure > img.fit {
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+figure > img.relax-y {
+  height: auto;
+  top: auto;
+  margin: auto 0;
+}
+
+figure > img.relax-x {
+  width: auto;
+}
+
 figcaption {
   font-size: 3em;
-  /*color: #611427;*/
-  color: #000000;
+  /*color: #000000;*/
+  color: #611427;
   font-weight: 700;
   text-align: right;
   position: absolute;
-  bottom: 20px;
-  right: 35px;
+  bottom: .4em;
+  right: .6em;
   width: 100%;
+}
+
+figcaption.left {
+  right: 0;
+  left: .6em;
+  text-align: left;
 }
 
 figcaption.invert {
   color: #FFFFFF;
   text-shadow: 2px 2px #000000;
+}
+
+figcaption.band {
+  /*color: #611427;*/
+  right: 0;
+  text-align: left;
+  background-color: rgba(255, 255, 255, .75);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  padding-left: .5em;
+  line-height: 1.5em;
+  padding-bottom: .05em;
+  bottom: 1em;
 }
 
 section.title footer {
@@ -547,6 +634,12 @@ img.middle {
   margin: 0 auto;
 }
 
+img.corner {
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+}
+
 img.stretch-x {
   width: 100%;
 }
@@ -571,6 +664,10 @@ img.stretch-y {
   text-align: right;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .auto-width {
   width: auto !important;
 }
@@ -578,7 +675,8 @@ img.stretch-y {
 span.detail {
   font-size: .6em;
   color: #958976;
-  opacity: 0.3;
+  /*opacity: 0.3;*/
+  opacity: 0.6;
   font-weight: normal;
 }
 
@@ -595,7 +693,8 @@ span.detail {
 
 /* The current item */
 .incremental > *[aria-selected] {
-  opacity: 1;
+  /* bug in Chrome makes it jump when opacity goes to 1 */
+  opacity: .99;
 }
 
 /* The items to-be-selected */
@@ -621,11 +720,28 @@ span.detail {
 /* TODO: merge the overrides below into the sheet */
 section.title h1 {
   font-size: 4em;
+  line-height: 1.1;
 }
 
 section.title h1 strong {
   font-size: 3em;
   font-style: italic;
+}
+
+#zen-of-writing section.title h1 strong {
+  display: inline-block;
+  margin-left: -.15em;
+  padding-right: .05em;
+}
+
+section.title h1 strong .subtle {
+  font-weight: 300;
+  color: #CCC;
+}
+
+section.title h1 em {
+  /*font-style: italic;*/
+  color: #878660;
 }
 
 section.intro h1 strong,
@@ -698,4 +814,8 @@ section.fit > img {
 
 .colist {
   color: #DDDCC5;
+}
+
+.intro .small {
+  font-size: .5em;
 }
